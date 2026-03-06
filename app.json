@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "יומן הודייה",
+    "slug": "gratitude-journal",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#C8E6F5"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#7EC8C8"
+      },
+      "package": "com.mycompany.gratitudejournal",
+      "permissions": [
+        "RECEIVE_BOOT_COMPLETED",
+        "SCHEDULE_EXACT_ALARM",
+        "USE_EXACT_ALARM"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "color": "#7EC8C8",
+          "defaultChannel": "daily-reminder"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "1c2cb34b-61fc-4375-9f9f-7f26d9123437"
+      }
+    }
+  }
+}

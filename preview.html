@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>יומן הודייה</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#7AAABB;display:flex;flex-direction:column;align-items:center;min-height:100vh;padding:60px 20px 40px;font-family:Segoe UI,Arial,sans-serif}
+.tabs{display:flex;gap:10px;margin-bottom:20px}
+.tab{padding:8px 22px;border-radius:20px;border:none;cursor:pointer;font-size:14px;font-weight:700;font-family:inherit;transition:all .2s}
+.tab.active{background:#fff;color:#2E6A80;box-shadow:0 3px 12px rgba(0,0,0,.15)}
+.tab:not(.active){background:rgba(255,255,255,.25);color:#fff}
+.phone{width:375px;min-height:760px;border-radius:44px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4),0 0 0 10px #1a1a2e;background-image:url('assets/background.jpeg');background-size:cover;background-position:center;position:relative}
+.phone::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,0.15);z-index:0;pointer-events:none}
+.sbar,.screen{position:relative;z-index:1}
+.sbar{display:flex;justify-content:space-between;padding:14px 24px 6px;font-size:12px;color:#2E6A80;font-weight:700}
+.screen{padding:10px 20px 40px;display:none}.screen.active{display:block}
+.hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.dt{font-size:13px;color:#4A7A90;font-weight:700}
+.sbtn{background:rgba(126,200,200,.35);border:none;padding:7px 14px;border-radius:20px;color:#2E6A80;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
+.sbtn:hover{background:rgba(126,200,200,.55)}
+.tblk{text-align:center;margin-bottom:26px}
+.wemoji{font-size:44px;display:block;margin-bottom:6px}
+.appttl{font-size:30px;font-weight:900;color:#2E6A80;letter-spacing:1px;margin-bottom:6px}
+.sub{font-size:15px;color:#B5622A}
+.card{background:rgba(255,255,255,.68);border-radius:18px;padding:14px;margin-bottom:13px;box-shadow:0 4px 16px rgba(106,170,187,.2)}
+.clbl{font-size:13px;font-weight:800;color:#7EC8C8;text-align:right;margin-bottom:5px}
+.card input{width:100%;border:none;background:transparent;font-size:15px;color:#2E5060;text-align:right;font-family:inherit;outline:none;min-height:32px;direction:rtl}
+.card input::placeholder{color:#A8C8D8}
+.savebtn{width:100%;background:#7EC8C8;border:none;border-radius:30px;padding:15px;color:#fff;font-size:17px;font-weight:800;cursor:pointer;font-family:inherit;margin-top:6px;margin-bottom:20px;box-shadow:0 5px 18px rgba(74,170,187,.35);transition:background .2s}
+.savebtn:hover{background:#5AAABB}.savebtn.saved{background:#88D8A8}
+.wv1{height:28px;background:rgba(126,200,200,.25);border-radius:80px 80px 0 0}
+.wv2{height:14px;background:rgba(126,200,200,.15);border-radius:60px 60px 0 0;margin:4px 20px 0}
+.histhdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.histttl{font-size:20px;font-weight:900;color:#2E6A80}
+.hcard{background:rgba(255,255,255,.70);border-radius:18px;padding:16px;margin-bottom:14px;box-shadow:0 4px 16px rgba(106,170,187,.2)}
+.hcardh{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.hdate{font-size:13px;font-weight:800;color:#3D7A8A}
+.hcnt{font-size:11px;color:#7EC8C8;font-weight:700;background:rgba(126,200,200,.2);padding:3px 8px;border-radius:10px}
+.hdiv{height:1px;background:rgba(126,200,200,.3);margin-bottom:10px}
+.hitem{font-size:13px;color:#3D5A68;text-align:right;padding:3px 0;line-height:21px}
+.notifarea{width:375px;margin-top:22px}
+.notiflbl{text-align:center;color:rgba(255,255,255,.85);font-size:13px;margin-bottom:8px;font-weight:600}
+.notiftoast{background:rgba(25,25,35,.92);border-radius:16px;padding:13px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.nicon{font-size:26px}.nbody{flex:1}
+.ntitle{color:#fff;font-weight:700;font-size:13px;margin-bottom:2px}
+.nmsg{color:rgba(255,255,255,.72);font-size:12px}
+.ntime{color:rgba(255,255,255,.45);font-size:11px;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="tabs"><button class="tab active" onclick="show('main')" id="tm">מסך יומי</button><button class="tab" onclick="show('history')" id="th">היסטוריה</button></div><div class="phone"><div class="sbar"><span>21:00</span><span>&#128246; &#128267;</span></div><div class="screen active" id="screen-main"><div class="hdr"><button class="sbtn" onclick="show('history')">היסטוריה &#128203;</button><span class="dt">יום חמישי, 5 במרץ 2026</span></div><div class="tblk"><div class="appttl">יומן הודייה</div><div class="sub">חמישה דברים שמאירים את יומי</div></div><div class="card"><div class="clbl">&#10024; 1</div><input type="text" placeholder="אני מודה על..." value="הבוקר השקט עם כוס קפה חמה"/></div><div class="card"><div class="clbl">&#10024; 2</div><input type="text" placeholder="אני מודה על..." value="הבריאות שלי ושל המשפחה"/></div><div class="card"><div class="clbl">&#10024; 3</div><input type="text" placeholder="אני מודה על..."/></div><div class="card"><div class="clbl">&#10024; 4</div><input type="text" placeholder="אני מודה על..."/></div><div class="card"><div class="clbl">&#10024; 5</div><input type="text" placeholder="אני מודה על..."/></div><button class="savebtn" id="svbtn" onclick="handleSave()">שמור את ההודיות</button><div class="wv1"></div><div class="wv2"></div></div><div class="screen" id="screen-history"><div class="histhdr"><button class="sbtn" onclick="show('main')">&rarr; חזרה</button><div class="histttl">ההודיות שלי &#127754;</div></div><div class="hcard"><div class="hcardh"><span class="hcnt">5/5</span><span class="hdate">יום חמישי, 5 במרץ 2026</span></div><div class="hdiv"></div><div class="hitem">&#10024; הבוקר השקט עם כוס קפה חמה</div><div class="hitem">&#10024; הבריאות שלי ושל המשפחה</div><div class="hitem">&#10024; הטיול אתמול עם הכלב</div><div class="hitem">&#10024; החברים הטובים שיש לי</div><div class="hitem">&#10024; השמש שזרחה היום בבוקר</div></div><div class="hcard"><div class="hcardh"><span class="hcnt">3/5</span><span class="hdate">יום רביעי, 4 במרץ 2026</span></div><div class="hdiv"></div><div class="hitem">&#10024; ארוחת ערב משפחתית נעימה</div><div class="hitem">&#10024; העבודה שמספקת לי</div><div class="hitem">&#10024; הספר שקראתי לפני השינה</div></div><div class="wv1" style="margin-top:8px"></div><div class="wv2"></div></div></div><div class="notifarea"><div class="notiflbl">כך תיראה ההתראה כל יום ב-21:00</div><div class="notiftoast"><div class="nicon">&#127749;</div><div class="nbody"><div class="ntitle">זמן להודייה</div><div class="nmsg">על מה אתה מודה היום? פתח את היומן &#10024;</div></div><div class="ntime">עכשיו</div></div></div><script>
+function show(n){document.querySelectorAll(".screen").forEach(function(s){s.classList.remove("active");});document.getElementById("screen-"+n).classList.add("active");document.getElementById("tm").className="tab"+(n==="main"?" active":"");document.getElementById("th").className="tab"+(n==="history"?" active":"");}
+function handleSave(){var b=document.getElementById("svbtn");b.textContent="נשמר בהצלחה &#10003;";b.classList.add("saved");setTimeout(function(){b.textContent="שמור את ההודיות";b.classList.remove("saved");},2000);}
+</script>
+</body>
+</html>
