@@ -4,16 +4,16 @@
     "slug": "gratitude-journal",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/background.jpeg",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/background.jpeg",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#C8E6F5"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/background.jpeg",
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#7EC8C8"
       },
       "package": "com.mycompany.gratitudejournal",
